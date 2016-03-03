@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import br.com.caelum.correios.soap.ConsumidorServicoCorreios;
 import br.com.caelum.estoque.soap.EstoqueWS;
 import br.com.caelum.estoque.soap.EstoqueWSService;
 import br.com.caelum.estoque.soap.ItemEstoque;
@@ -107,6 +108,9 @@ public class Carrinho implements Serializable {
 		this.cepDestino = novoCepDestino;
 
 		//servico web do correios aqui
+		ConsumidorServicoCorreios servicosCorreios = new ConsumidorServicoCorreios();
+		this.valorFrete = servicosCorreios.calculaFrete(novoCepDestino);
+
 	}
 
 	public String getCepDestino() {
