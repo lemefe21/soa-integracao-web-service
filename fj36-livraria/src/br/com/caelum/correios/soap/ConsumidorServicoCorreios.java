@@ -41,6 +41,7 @@ public class ConsumidorServicoCorreios {
 		System.out.printf("Frete para %s é de R$ %s", cepDestino, valorFrete);
 
 		return converterParaBigDecimal(valorFrete);
+
 	}
 
 	private BigDecimal converterParaBigDecimal(String valor) {
